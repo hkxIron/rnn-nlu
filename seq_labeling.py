@@ -19,9 +19,13 @@ from tensorflow.python.framework import tensor_shape
 from tensorflow.contrib.legacy_seq2seq import sequence_loss_by_example
 from tensorflow.contrib.legacy_seq2seq import sequence_loss
 
-from tensorflow.python.ops import rnn_cell_impl
+#from tensorflow.python.ops import rnn_cell_impl
+#from tensorflow.contrib import rnn_cell_impl
+#linear = rnn_cell_impl._linear
 
-linear = rnn_cell_impl._linear
+# 上面是老接口,不能使用,下面是新接口
+from tensorflow.contrib.rnn.python.ops import core_rnn_cell
+linear = core_rnn_cell._Linear
 
 def _step(time, sequence_length, min_sequence_length, 
           max_sequence_length, zero_logit, generate_logit):

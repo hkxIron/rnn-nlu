@@ -3,6 +3,13 @@
 Created on Sun Feb 28 16:23:37 2016
 
 @author: Bing Liu (liubing@cmu.edu)
+
+该代码在tf 1.12版跑不起来
+https://github.com/HadoopIt/rnn-nlu
+
+下面的代码是别人优化后的,比原作者代码好懂
+https://github.com/hkxIron/RNN-for-Joint-NLU
+
 """
 
 from __future__ import absolute_import
@@ -226,8 +233,8 @@ def create_model(session,
         
 def train():
   print ('Applying Parameters:')
-  for k,v in FLAGS.__dict__['__flags'].iteritems():
-    print ('%s: %s' % (k, str(v)))
+  #for k,v in FLAGS.__dict__['__wrapped']:
+  #  print ('%s: %s' % (k, str(v)))
   print("Preparing data in %s" % FLAGS.data_dir)
   vocab_path = ''
   tag_vocab_path = ''

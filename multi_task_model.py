@@ -68,7 +68,8 @@ class MultiTaskModel(object):
     # Create the internal multi-layer cell for our RNN.
     def create_cell():
       if not forward_only and dropout_keep_prob < 1.0:
-        single_cell = lambda: BasicLSTMCell(self.cell_size)
+        #single_cell = lambda: BasicLSTMCell(self.cell_size)
+        single_cell = lambda: tf.nn.rnn_cell.LSTMCell(self.cell_size,name="basic_lstm_cell")
         cell = MultiRNNCell([single_cell() for _ in range(self.num_layers)])
         cell = DropoutWrapper(cell,
                                 input_keep_prob=dropout_keep_prob,
